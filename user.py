@@ -1,4 +1,3 @@
-from exceptions import AdminException
 from ollama_system import OllamaSystem
 from _private_info import _password
 
@@ -11,13 +10,6 @@ class User:
         self.username = '<User is unknown>'
         self.admin_rules = admin_rules
         self.user_input_password = None
-
-    def prompt(self) -> str:
-        if not self.admin_rules:
-            message = input()
-            return message
-        else:
-            raise AdminException('Switch admin rules before prompt!')
 
     @property
     def password_is_true(self) -> bool:

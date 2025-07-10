@@ -9,5 +9,21 @@ def _get_password() -> str:
         print('Password is empty!')
         return ''
 
+def _get_token() -> str:
+    try:
+        token= ''
+        with open('extensions/token.txt', 'r') as file:
+            token = file.readline()
+            print(f'Token set successfully! Your token is: {token}')
+        return token
+    except FileNotFoundError as _ex:
+        print('File is not found!')
+        print('The system shuts down..')
+        exit(0)
+    except Exception as _ex:
+        print(_ex)
+        print('The system shuts down..')
+        exit(0)
+
 _password = _get_password()
-_token = '8095147953:AAFU-AtAVKUVNkXgUmISVKWjTy4jtv1Hk0E'
+_token = _get_token()

@@ -166,7 +166,6 @@ def send_prompt(message):
 
             msg = telebot.formatting.escape_markdown(user.system.make_question(message.text))
             response = [msg]
-            print('Answer is ready!')
             while len(response[-1]) > 4000:
                 response = response[:-1] + [response[-1][:4000], response[-1][4000:]]
 
@@ -175,7 +174,7 @@ def send_prompt(message):
                 bot.send_message(message.chat.id, response[i], parse_mode='MarkdownV2')
                 msgtime = datetime.datetime.fromtimestamp(message.date)
                 user.logs.write_json({user.system.model : {f'{msgtime} | {message.from_user.username}' : {message.text : response}}})
-                print('Message was sent to user!')
+
         except Exception as _ex:
             bot.delete_message(chat_id=message.chat.id, message_id=wait_msg.message_id)
             except_errors(message, 'Error while prompt:', _ex)

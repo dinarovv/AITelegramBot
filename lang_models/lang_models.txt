@@ -1,0 +1,5 @@
+gemma3:latest
+deepseek-r1:1.5b
+nomic-embed-text:latest
+qwen2.5-coder:1.5b-base
+llama3.1:8b
