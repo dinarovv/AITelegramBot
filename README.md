@@ -41,7 +41,7 @@ chmod +x ./lang_models/install_models.sh ./libs/install_libs.sh ./main.py
 
 ```python
 ./extensions/password.txt # там должен лежать ваш пароль
-./extensions/token.txt # там должен лежать ваш пароль
+./extensions/token.txt # там должен лежать ваш токен
 ```
 
 3. **Запусти бота:**
